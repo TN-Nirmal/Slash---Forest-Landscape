@@ -1,0 +1,13 @@
+Binaries/
+Content/BlackAlder/
+Content/Fab/
+DerivedDataCache/
+Intermediate/
+Saved/
+.vs/
+.vscode/
+
+*.VC.db
+*.VC.opendb
+*.sdf
+*.sln
