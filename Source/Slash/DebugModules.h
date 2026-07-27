@@ -15,3 +15,10 @@ if(GetWorld()) \
     DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Yellow, true, -1.f, 0, 0.2f); \
     DrawDebugPoint(GetWorld(), EndLocation, 10.f, FColor::Green, true, 0.2f); \
 }
+
+#define DRAW_CAPSULE(StartLocation, EndLocation, Radius, HalfHeight) \
+if(GetWorld()) \
+{ \
+	DrawDebugCapsule(GetWorld(), StartLocation, HalfHeight, Radius, FQuat::Identity, FColor::Blue, true, -1.f, 0, 0.5f); \
+	DrawDebugCapsule(GetWorld(), EndLocation, HalfHeight, Radius, FQuat::Identity, FColor::Blue, true, -1.f, 0, 0.5f); \
+}
