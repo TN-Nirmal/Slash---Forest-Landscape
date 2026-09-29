@@ -15,14 +15,14 @@ ABird::ABird()
 	RootComponent = Capsule;
 
 	BirdMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("BirdMesh"));
-	BirdMesh->SetupAttachment(GetRootComponent());
+	BirdMesh ->SetupAttachment(GetRootComponent());
 
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
-	SpringArm->SetupAttachment(GetRootComponent());
-	SpringArm->TargetArmLength = 300.0f;
+	SpringArm ->SetupAttachment(GetRootComponent());
+	SpringArm ->TargetArmLength = 300.0f;
 
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
-	Camera->SetupAttachment(SpringArm);
+	Camera ->SetupAttachment(SpringArm);
 
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 }
@@ -46,9 +46,9 @@ void ABird::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	PlayerInputComponent->BindAxis(FName("MoveForward"), this, &ABird::MoveForward);
-	PlayerInputComponent->BindAxis(FName("Turn"), this, &ABird::Turn);
-	PlayerInputComponent->BindAxis(FName("LookUp"), this, &ABird::LookUp);
+	PlayerInputComponent ->BindAxis(FName("MoveForward"), this, &ABird::MoveForward);
+	PlayerInputComponent ->BindAxis(FName("Turn"), this, &ABird::Turn);
+	PlayerInputComponent ->BindAxis(FName("LookUp"), this, &ABird::LookUp);
 }
 
 void ABird::MoveForward(float Value)
