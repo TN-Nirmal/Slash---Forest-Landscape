@@ -8,6 +8,12 @@
 
 class USphereComponent;
 
+enum class EItemState : uint8
+{
+	EIS_Hovering,
+	EIS_Equipped,
+};
+
 UCLASS()
 class SLASH_API AItem : public AActor
 {
@@ -45,6 +51,10 @@ protected:
 	UFUNCTION()
 	virtual void OnSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
+	EItemState ItemState = EItemState::EIS_Hovering;
+
+	UPROPERTY(VisibleAnywhere)
+	USphereComponent* Sphere;
 
 public:	
 	// Called every frame
@@ -54,8 +64,6 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	float RunningTime;
 
-	UPROPERTY(VisibleAnywhere)
-	USphereComponent* Sphere;
 };
 
 template <typename T>
